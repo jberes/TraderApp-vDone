@@ -1,0 +1,249 @@
+<div class="row-layout frame-44">
+  <div class="column-layout frame-43">
+    <igx-input-group type="border" class="input">
+      <igx-prefix>
+        <igx-icon class="icon">
+          search
+        </igx-icon>
+      </igx-prefix>
+      <input (keyup.enter)="onSearchClicked(searchInput.value)" #searchInput type="text" placeholder="" igxInput />
+      <label igxLabel>Tickers</label>
+    </igx-input-group>
+    <div class="row-layout frame-42">
+      <igx-list class="list">
+        <igx-list-item
+          [isHeader]="false" *ngFor="let item of companyStockDataFeed"
+          (click)="onItemClicked(item)"
+          [ngClass]="item.selected ? 'selected' : ''" #item
+          igxRipple
+          igxRippleTarget=".igx-list__item-content">
+          <span igxListLineTitle>{{ item.stock_symbol }}</span>
+          <span igxListLineSubTitle>{{ item.stock_name }}</span>
+          <span igxListAction>
+            <igx-icon class="icon-7">
+              keyboard_arrow_right
+            </igx-icon>
+          </span>
+        </igx-list-item>
+      </igx-list>
+    </div>
+  </div>
+  <div *ngIf="itemData" class="column-layout frame-41">
+    <div class="row-layout frame-27">
+      <div class="column-layout frame-26">
+        <div class="column-layout frame-23">
+          <div class="row-layout frame-22">
+            <p class="ig-typography__overline content">
+              {{ itemData.stock_symbol }}
+            </p>
+            <p class="ig-typography__caption text">
+              ∙
+            </p>
+            <p class="ig-typography__overline content">
+              {{ itemData.stock_market }}
+            </p>
+          </div>
+          <h5 class="content">
+            {{ itemData.stock_name }}
+          </h5>
+        </div>
+        <div class="row-layout frame-25">
+          <h3 class="content">
+            {{ itemData.previous_close }}
+          </h3>
+          <div class="row-layout frame-24">
+            <h6 class="content_2">
+
+            </h6>
+            <h6 class="content_2">
+
+            </h6>
+          </div>
+        </div>
+        <div class="column-layout frame-23">
+          <div class="row-layout frame-20">
+            <p class="content">
+              Market Cap:
+            </p>
+            <p class="ig-typography__subtitle-1 content">
+              {{ itemData.stock_market_cap }}
+            </p>
+            <p class="ig-typography__subtitle-1 content_2">
+
+            </p>
+            <p class="ig-typography__subtitle-1 content_2">
+
+            </p>
+          </div>
+          <div class="row-layout frame-19">
+            <p class="ig-typography__body-2 content">
+              Earnings:
+            </p>
+            <p class="ig-typography__body-2 content">
+              {{itemData.earnings | currency:'USD':'symbol':'1.2-2' }}
+            </p>
+            <p class="ig-typography__caption content">
+
+            </p>
+            <p class="ig-typography__body-2 content">
+
+            </p>
+            <p class="ig-typography__body-2 content">
+
+            </p>
+            <a href="url" target="_blank" class="ig-typography__body-1 hyperlink">
+
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row-layout frame-18">
+        <div class="column-layout frame-12">
+          <div class="row-layout frame-11">
+            <p class="ig-typography__caption subtitle-7">
+              COUNTRY
+            </p>
+            <p class="ig-typography__caption subtitle-6">
+              {{ itemData.country }}
+            </p>
+          </div>
+          <div class="row-layout frame-11">
+            <p class="ig-typography__caption subtitle-7">
+              SECTOR
+            </p>
+            <p class="ig-typography__caption subtitle-6">
+              {{ itemData.stock_sector }}
+            </p>
+          </div>
+          <div class="row-layout frame-11">
+            <p class="ig-typography__caption subtitle-7">
+              INDUSTRY
+            </p>
+            <p class="ig-typography__caption subtitle-6">
+              {{ itemData.stock_industry }}
+            </p>
+          </div>
+          <div class="row-layout frame-11">
+            <p class="ig-typography__caption subtitle-7">
+              MARKET CAP
+            </p>
+            <p class="ig-typography__caption subtitle-6">
+              {{ itemData.stock_market_cap }}
+            </p>
+          </div>
+        </div>
+        <div class="column-layout frame-17">
+          <div class="row-layout frame-11">
+            <button igxButton="raised" routerLink="/dashboardview/@{{ itemData.stock_symbol }}" igxRipple  class="button">
+              <igx-icon>
+                assessment
+              </igx-icon>
+              <span>Analyze</span>
+            </button>
+          </div>
+          <div class="row-layout frame-14"></div>
+          <div class="row-layout frame-14"></div>
+          <div class="row-layout frame-14"></div>
+        </div>
+      </div>
+    </div>
+    <div class="column-layout frame-7">
+
+      <div class="category-chart chart">
+        <igx-financial-chart #chart
+          [dataSource]="dataSources"
+          height="100%" width="100%"
+          chartType="Candle"
+          zoomSliderType="None"
+          subtitle=""
+          subtitleTopMargin="10"
+          isWindowSyncedToVisibleRange="true">
+        </igx-financial-chart>
+    </div>
+
+    </div>
+    <div class="row-layout frame-40">
+      <div class="column-layout stocks-1">
+        <div class="column-layout frame-22">
+          <p class="ig-typography__body-2 apple-inc">
+            Apple Inc.
+          </p>
+          <h6 class="content">
+            $165.02
+          </h6>
+        </div>
+        <div class="row-layout frame-33">
+          <p class="ig-typography__subtitle-2 aapl">
+            AAPL
+          </p>
+          <div class="row-layout frame-32">
+            <p class="ig-typography__subtitle-2 content">
+              -1.12%
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column-layout stocks-1">
+        <div class="column-layout frame-22">
+          <p class="ig-typography__body-2 apple-inc">
+            Tesla Inc.
+          </p>
+          <h6 class="content">
+            $165.08
+          </h6>
+        </div>
+        <div class="row-layout frame-33">
+          <p class="ig-typography__subtitle-2 aapl">
+            TSLA
+          </p>
+          <div class="row-layout frame-38">
+            <p class="ig-typography__subtitle-2 content">
+              +1.28%
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column-layout stocks-1">
+        <div class="column-layout frame-22">
+          <p class="ig-typography__body-2 apple-inc">
+            Microsoft Corp
+          </p>
+          <h6 class="content">
+            $285.76
+          </h6>
+        </div>
+        <div class="row-layout frame-33">
+          <p class="ig-typography__subtitle-2 aapl">
+            MSFT
+          </p>
+          <div class="row-layout frame-32">
+            <p class="ig-typography__subtitle-2 content">
+              -0.12%
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column-layout stocks-1">
+        <div class="column-layout frame-22">
+          <p class="ig-typography__body-2 apple-inc">
+            Alphabet Inc Class A
+          </p>
+          <h6 class="content">
+            $105.41
+          </h6>
+        </div>
+        <div class="row-layout frame-33">
+          <p class="ig-typography__subtitle-2 aapl">
+            GOOGL
+          </p>
+          <div class="row-layout frame-38">
+            <p class="ig-typography__subtitle-2 content">
+              +0.11%
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <igx-toast #toast class="notification-toast" [displayTime]="2000"></igx-toast>
+</div>

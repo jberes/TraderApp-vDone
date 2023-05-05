@@ -1,0 +1,45 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.row-layout {
+  display: flex;
+}
+.frame {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 32px;
+  overflow: auto;
+  position: relative;
+  padding: 32px;
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.card {
+  width: 320px;
+  height: max-content;
+  min-width: 320px;
+  flex-shrink: 0;
+}
+.actions-content {
+  min-width: 50px;
+  min-height: 40px;
+}
+.avatar {
+  --background: none;
+  --ig-gray-400: transparent;
+}
+.image {
+  height: 100%;
+}
+.button {
+  --igx-button-foreground: hsla(var(--ig-gray-900));
+  --igx-button-background: hsla(var(--ig-success-500));
+  height: max-content;
+}

@@ -1,0 +1,307 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.row-layout {
+  display: flex;
+}
+.frame-44 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 32px;
+  position: relative;
+  padding: 32px;
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.frame-43 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  width: 15%;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+.frame-42 {
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  gap: 12px;
+  overflow: auto;
+  position: relative;
+  padding: 10px;
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.frame-41 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 40px;
+  position: relative;
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.frame-27 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 24px;
+  position: relative;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+.frame-26 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+  width: 40%;
+}
+.frame-23 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  position: relative;
+}
+.frame-22 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 4px;
+  position: relative;
+}
+.frame-25 {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 10px;
+  position: relative;
+}
+.frame-24 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 10px;
+  position: relative;
+  padding: 10px;
+}
+.frame-20 {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+}
+.frame-19 {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 4px;
+  position: relative;
+}
+.frame-18 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 40px;
+  position: relative;
+  width: 440px;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+.frame-12 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  position: relative;
+  width: 100%;
+  align-self: stretch;
+}
+.frame-11 {
+  border-color: rgba(255, 255, 255, 0.10000000149011612);
+  border-width: 1px;
+  border-style: solid;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  position: relative;
+  padding: 10px 16px;
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.frame-17 {
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-content: flex-start;
+  position: relative;
+  width: 60%;
+  align-self: stretch;
+}
+.frame-14 {
+  background-color: transparent;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  position: relative;
+  padding: 10px 16px;
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.frame-7 {
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  gap: 10px;
+  position: relative;
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.frame-40 {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+.stocks-1 {
+  background-color: rgba(255, 255, 255, 0.05000000074505806);
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 16px;
+  overflow: hidden;
+  position: relative;
+  padding: 18px 16px;
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.frame-33 {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 10px;
+  position: relative;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+.frame-32 {
+  background-color: hsla(var(--ig-error-500));
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 10px;
+  position: relative;
+  padding: 2px 8px;
+}
+.frame-38 {
+  background-color: hsla(var(--ig-success-500));
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 10px;
+  position: relative;
+  padding: 2px 8px;
+}
+.input {
+  position: relative;
+  height: max-content;
+  align-self: stretch;
+}
+.button {
+  --igx-button-foreground: hsla(var(--ig-surface-500));
+  --igx-button-background: hsla(var(--ig-success-500));
+  height: max-content;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: hsla(var(--ig-gray-700));
+  position: relative;
+}
+.icon-7 {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: hsla(var(--ig-gray-700));
+}
+.content {
+  color: #FFFFFFFF;
+  position: relative;
+}
+.text {
+  color: #FFFFFFB2;
+  position: relative;
+}
+.content_2 {
+  color: hsla(var(--ig-success-500));
+  position: relative;
+}
+.hyperlink {
+  color: hsla(var(--ig-info-500));
+  cursor: pointer;
+  position: relative;
+}
+.subtitle-7 {
+  color: hsla(var(--ig-gray-400));
+  position: relative;
+}
+.subtitle-6 {
+  text-align: center;
+  color: #FFFFFFFF;
+  position: relative;
+}
+.apple-inc {
+  color: hsla(var(--ig-gray-500));
+  position: relative;
+}
+.aapl {
+  color: #FFFFFFFF;
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.list {
+  position: relative;
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.category-chart {
+  --brushes: #56b4e9 #009e73 #f0e442 #d55e00 #d600fe #00499f #e69f00 #000000 #84f0df #735656;
+  --outlines: #56b4e9 #009e73 #f0e442 #d55e00 #d600fe #00499f #e69f00 #000000 #84f0df #735656;
+  --marker-brushes: #56b4e9 #009e73 #f0e442 #d55e00 #d600fe #00499f #e69f00 #000000 #84f0df #735656;
+  --marker-outlines: #56b4e9 #009e73 #f0e442 #d55e00 #d600fe #00499f #e69f00 #000000 #84f0df #735656;
+  position: relative;
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.selected {
+  background-color: green;
+}
+.notification-toast {
+  margin-bottom: 36px;
+}

@@ -1,0 +1,41 @@
+<div class="row-layout frame">
+  <igx-card type="outlined" *ngFor="let item of dashboardsListDashboards" routerLink="/dashboardview" class="card">
+    <igx-card-header>
+      <div igxCardThumbnail>
+        <igx-avatar [src]="item.AddedByImageUrl" [roundShape]="true" class="avatar"></igx-avatar>
+      </div>
+      <h3 igxCardHeaderTitle>
+        {{ item.Title }}
+      </h3>
+      <h5 igxCardHeaderSubtitle>
+        {{ item.AddedBy }}
+      </h5>
+    </igx-card-header>
+    <igx-card-media height="400px">
+      <img [src]="item.ThumbnailURL" class="image" />
+    </igx-card-media>
+    <igx-card-actions [reverse]="true" class="actions-content">
+      <button igxButton="flat" igxRipple routerLink="/dashboardview/{{ item.Title }}" class="button">
+        <span>Open</span>
+        <igx-icon>
+          zoom_in
+        </igx-icon>
+      </button>
+      <button igxButton="icon" igxRipple>
+        <igx-icon>
+          favorite
+        </igx-icon>
+      </button>
+      <button igxButton="icon" igxRipple>
+        <igx-icon>
+          bookmark
+        </igx-icon>
+      </button>
+      <button igxButton="icon" igxRipple>
+        <igx-icon>
+          share
+        </igx-icon>
+      </button>
+    </igx-card-actions>
+  </igx-card>
+</div>

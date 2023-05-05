@@ -1,0 +1,26 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.frame {
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 32px;
+  position: relative;
+  padding: 32px;
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.dashboard {
+  color: #FFFFFFFF;
+  position: relative;
+}
