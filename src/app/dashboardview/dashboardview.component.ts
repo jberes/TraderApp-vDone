@@ -19,7 +19,6 @@ export class DashboardviewComponent implements AfterViewInit {
   ngAfterViewInit() {
     const stockSymbol = this.route.snapshot.queryParamMap.get('stockSymbol');
     const dashbordId = this.route.snapshot.paramMap.get('id');
-
     this.loadDashboard(dashbordId, stockSymbol);
   }
 
