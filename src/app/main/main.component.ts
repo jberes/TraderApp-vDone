@@ -26,6 +26,7 @@ export class MainComponent implements OnInit {
   
   @ViewChild(IgxToastComponent, { static: true }) toast: IgxToastComponent;
   @ViewChild("chart", { static: true })
+  
   public chart: IgxFinancialChartComponent;
   public dataSource: any[];
 
