@@ -134,7 +134,7 @@
         </div>
         <div class="column-layout frame-17">
           <div class="row-layout frame-11">
-            <button igxButton="raised" routerLink="/dashboardview/@{{ itemData.stock_symbol }}" igxRipple  class="button">
+            <button igxButton="raised" [routerLink]="['/dashboardview']" [queryParams]="{ stockSymbol: itemData.stock_symbol }" igxRipple  class="button">
               <igx-icon>
                 assessment
               </igx-icon>

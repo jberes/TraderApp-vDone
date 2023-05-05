@@ -1,5 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 declare let $: any;
 $.ig.RevealSdkSettings.setBaseUrl("https://reveal-api.azurewebsites.net/");
@@ -10,47 +10,26 @@ $.ig.RevealSdkSettings.setBaseUrl("https://reveal-api.azurewebsites.net/");
   templateUrl: './dashboardview.component.html',
   styleUrls: ['./dashboardview.component.scss']
 })
-export class DashboardviewComponent {
+export class DashboardviewComponent implements AfterViewInit {
   @ViewChild('revealView') el!: ElementRef;
-  constructor(
-    private route: ActivatedRoute){}
-    public comingIn: string;
-    public filterIn: string;
 
-  async ngAfterViewInit() {
-
-  var dashboardToLoad: any;
-  var id: any;
-
-  this.route.params.subscribe(params => {
-    id = params['id'];
-    this.comingIn = id;
-    if (id.startsWith('@')) {
-      dashboardToLoad = 'Analysis';
-      id = id.substring(1);
-    } else {
-      dashboardToLoad = id;
-    }
-  });
-
-  var theme = new $.ig.OceanDarkTheme();
-  theme = $.ig.RevealSdkSettings.theme.clone();
-    
-  theme.fontColor = "white";
-  theme.accentColor = "#009900";
-  theme.dashboardBackgroundColor = "#292929";
-  theme.visualizationBackgroundColor = "#1d1d1d";
-  $.ig.RevealSdkSettings.theme = theme;
-
-  let dashboard = await $.ig.RVDashboard.loadDashboard(dashboardToLoad);
-  var revealView = new $.ig.RevealView(this.el.nativeElement);
-  revealView.refreshTheme();   
-  revealView.dashboard = dashboard;
-
-  if (dashboardToLoad == "Analysis") {
-        var territoryFilter = revealView.dashboard.filters.getByTitle("Ticker");
-        this.filterIn = id;
-        territoryFilter.selectedValues = [ id.trim().toUpperCase() ]; 
+  constructor(private route: ActivatedRoute) {
   }
-}; 
+
+  ngAfterViewInit() {
+    const stockSymbol = this.route.snapshot.queryParamMap.get('stockSymbol');
+    const dashbordId = this.route.snapshot.paramMap.get('id');
+
+    this.loadDashboard(dashbordId, stockSymbol);
+  }
+
+  async loadDashboard(dashboardId: string, stockSymbol?: string) {
+    const dashboard = await $.ig.RVDashboard.loadDashboard(dashboardId ?? "Analysis");
+    if (stockSymbol) {
+      const territoryFilter = dashboard.filters.getByTitle("Ticker");
+      territoryFilter.selectedValues = [stockSymbol.trim().toUpperCase()];
+    }
+    const revealView = new $.ig.RevealView(this.el.nativeElement);
+    revealView.dashboard = dashboard;
+  }
 }
