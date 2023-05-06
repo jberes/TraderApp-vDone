@@ -6,13 +6,18 @@
           search
         </igx-icon>
       </igx-prefix>
-      <input (keyup.enter)="onSearchClicked(searchInput.value)" #searchInput type="text" placeholder="" igxInput />
+      <input (keyup)="onSearchClicked(searchInput.value)" #searchInput type="text" placeholder="" igxInput [(ngModel)]="searchText" />
       <label igxLabel>Tickers</label>
+      <igx-suffix>
+        <igx-icon class="icon-1" (click)="onClearSearch()">
+          clear
+        </igx-icon>
+      </igx-suffix>
     </igx-input-group>
     <div class="row-layout frame-42">
       <igx-list class="list">
         <igx-list-item
-          [isHeader]="false" *ngFor="let item of companyStockDataFeed"
+          [isHeader]="false" *ngFor="let item of filteredStockSymbolData"
           (click)="onItemClicked(item)"
           [ngClass]="item.selected ? 'selected' : ''" #item
           igxRipple
@@ -28,28 +33,28 @@
       </igx-list>
     </div>
   </div>
-  <div *ngIf="itemData" class="column-layout frame-41">
+  <div *ngIf="selectedItem" class="column-layout frame-41">
     <div class="row-layout frame-27">
       <div class="column-layout frame-26">
         <div class="column-layout frame-23">
           <div class="row-layout frame-22">
             <p class="ig-typography__overline content">
-              {{ itemData.stock_symbol }}
+              {{ selectedItem.stock_symbol }}
             </p>
             <p class="ig-typography__caption text">
               ∙
             </p>
             <p class="ig-typography__overline content">
-              {{ itemData.stock_market }}
+              {{ selectedItem.stock_market }}
             </p>
           </div>
           <h5 class="content">
-            {{ itemData.stock_name }}
+            {{ selectedItem.stock_name }}
           </h5>
         </div>
         <div class="row-layout frame-25">
           <h3 class="content">
-            {{ itemData.previous_close }}
+            {{ selectedItem.previous_close }}
           </h3>
           <div class="row-layout frame-24">
             <h6 class="content_2">
@@ -66,7 +71,7 @@
               Market Cap:
             </p>
             <p class="ig-typography__subtitle-1 content">
-              {{ itemData.stock_market_cap }}
+              {{ selectedItem.stock_market_cap }}
             </p>
             <p class="ig-typography__subtitle-1 content_2">
 
@@ -80,7 +85,7 @@
               Earnings:
             </p>
             <p class="ig-typography__body-2 content">
-              {{itemData.earnings | currency:'USD':'symbol':'1.2-2' }}
+              {{selectedItem.earnings | currency:'USD':'symbol':'1.2-2' }}
             </p>
             <p class="ig-typography__caption content">
 
@@ -104,7 +109,7 @@
               COUNTRY
             </p>
             <p class="ig-typography__caption subtitle-6">
-              {{ itemData.country }}
+              {{ selectedItem.country }}
             </p>
           </div>
           <div class="row-layout frame-11">
@@ -112,7 +117,7 @@
               SECTOR
             </p>
             <p class="ig-typography__caption subtitle-6">
-              {{ itemData.stock_sector }}
+              {{ selectedItem.stock_sector }}
             </p>
           </div>
           <div class="row-layout frame-11">
@@ -120,7 +125,7 @@
               INDUSTRY
             </p>
             <p class="ig-typography__caption subtitle-6">
-              {{ itemData.stock_industry }}
+              {{ selectedItem.stock_industry }}
             </p>
           </div>
           <div class="row-layout frame-11">
@@ -128,13 +133,13 @@
               MARKET CAP
             </p>
             <p class="ig-typography__caption subtitle-6">
-              {{ itemData.stock_market_cap }}
+              {{ selectedItem.stock_market_cap }}
             </p>
           </div>
         </div>
         <div class="column-layout frame-17">
           <div class="row-layout frame-11">
-            <button igxButton="raised" routerLink="/dashboardview/@{{ itemData.stock_symbol }}" igxRipple  class="button">
+            <button igxButton="raised" [routerLink]="['/dashboardview']" [queryParams]="{ stockSymbol: selectedItem.stock_symbol }" igxRipple  class="button">
               <igx-icon>
                 assessment
               </igx-icon>
@@ -151,7 +156,7 @@
 
       <div class="category-chart chart">
         <igx-financial-chart #chart
-          [dataSource]="dataSources"
+          [dataSource]="dataSource"
           height="100%" width="100%"
           chartType="Candle"
           zoomSliderType="None"

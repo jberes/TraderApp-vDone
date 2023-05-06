@@ -19,5 +19,13 @@
 </head>
 <body class="ig-typography ig-scrollbar">
   <app-root></app-root>
+  <script type="text/javascript">
+    const theme = $.ig.RevealSdkSettings.theme.clone();
+    theme.fontColor = "white";
+    theme.accentColor = "#009900";
+    theme.dashboardBackgroundColor = "#292929";
+    theme.visualizationBackgroundColor = "#1d1d1d";
+    $.ig.RevealSdkSettings.theme = theme;
+  </script>
 </body>
 </html>
